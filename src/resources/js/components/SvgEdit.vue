@@ -89,7 +89,7 @@ const modes = {
 };
 Object.freeze(modes);
 
-export default {
+export default Vue.extend({
     watch: {
         polygon() {
             if (!this.currentEntryId) { return; }
@@ -622,7 +622,7 @@ export default {
             this.hoveringVertex = false;
         }
     }
-}
+});
 </script>
 <style>
 .backgroundStyle {
