@@ -1,6 +1,6 @@
 # Imagemap
 
-A Statamic v4 fieldtype for drawing SVG polygons on images, linking areas to collection entries.
+A Statamic fieldtype for drawing SVG polygons on images, linking areas to collection entries.
 
 ## Requirements
 
@@ -23,7 +23,7 @@ A Statamic v4 fieldtype for drawing SVG polygons on images, linking areas to col
 2. Require the package:
 
 ```bash
-composer require edgebranding/imagemap
+composer require edgebranding/imagemap:^1.0
 ```
 
 ## Usage
@@ -52,12 +52,12 @@ The field stores data as:
 
 ```json
 {
-    "image": "path/to/image.jpg",
-    "entries": [],
+    "images": ["path/to/image.jpg"],
+    "entries": ["abc123"],
     "items": [
         {
             "entryId": "abc123",
-            "assetId": "image.jpg",
+            "assetId": "path/to/image.jpg",
             "label": "Building A",
             "polygon": "100,200 300,200 300,400 100,400"
         }
