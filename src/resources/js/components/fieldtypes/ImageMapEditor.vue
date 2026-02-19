@@ -206,7 +206,7 @@ export default {
             }
 
             const items = this.value.entries.flatMap((entryId) => {
-                const entry = this.entriesWithMeta.find((entry) => entry.id === entryId);
+                const entry = this.entriesWithMeta.find((entry) => entry && entry.id === entryId);
 
                 return this.value.images.map((assetId) => {
                     const existingItem = this.value.items.find((item) => item.entryId === entryId && item.assetId === assetId);
@@ -218,7 +218,7 @@ export default {
                     return {
                         entryId: entryId,
                         assetId: assetId,
-                        label: entry.title,
+                        label: entry ? entry.title : '',
                         polygon: '',
                     };
                 });
