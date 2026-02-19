@@ -33,9 +33,9 @@ class ImageMapEditor extends Fieldtype
     public function defaultValue()
     {
         return [
+            'images' => [],
             'entries' => [],
             'items' => [],
-            'image' => null,
         ];
     }
 

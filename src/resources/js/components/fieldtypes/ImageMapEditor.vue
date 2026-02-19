@@ -279,6 +279,13 @@ export default {
                 items: [],
             });
         }
+
+        if (this.value.images && this.value.images.length) {
+            Promise.all(this.value.images.map(image => this.getImage(image))).then(responses => {
+                this.images = responses.map(r => r[0]);
+                this.selectedImage = this.images[0].id;
+            });
+        }
     },
 };
 </script>

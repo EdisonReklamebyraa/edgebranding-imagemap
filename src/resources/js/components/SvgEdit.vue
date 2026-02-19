@@ -118,7 +118,7 @@ export default Vue.extend({
             this.setPolygonCollection();
             this.setActiveObject(this.selected);
 
-            if (! this.images.length > 0) {
+            if (!this.images.length) {
                 return;
             }
 
@@ -128,7 +128,7 @@ export default Vue.extend({
             this.setPolygonCollection();
             this.setActiveObject(this.selected);
 
-            if (! this.images.length > 0) {
+            if (!this.images.length) {
                 return;
             }
 
@@ -140,6 +140,9 @@ export default Vue.extend({
         this.setImage(this.selectedImage);
         this.setPolygonCollection();
         this.setActiveObject(this.selected);
+    },
+    beforeDestroy() {
+        window.removeEventListener("keyup", this.keyHandler);
     },
     name: "SvgEdit",
     props: {
@@ -372,7 +375,6 @@ export default Vue.extend({
             }
         },
         setZoomMode(mode) {
-            // const mode = ev.target.getAttribute("mode");
             if (this.currentMode !== mode) {
                 this.currentMode = mode;
             } else {
@@ -454,7 +456,7 @@ export default Vue.extend({
                 pointY,
                 10 / this.zoom
             );
-            if (intersection != -1) {
+            if (intersection !== -1) {
                 this.insertVertex(pointX, pointY, intersection);
             }
         },
@@ -624,26 +626,15 @@ export default Vue.extend({
     }
 });
 </script>
-<style>
-.backgroundStyle {
-    position: relative;
-}
-
+<style scoped>
 .svglayer {
     transform-origin: 0 0;
     background-repeat: no-repeat;
     background-size: contain;
 }
-button {
-    font-size: 1rem;
-}
-.foo {
-    background: yellow;
-}
 .vertex {
     fill: yellow;
 }
-
 .polygonHelper {
     fill: none;
 }
@@ -651,7 +642,6 @@ button {
     max-width: 1600px;
     overflow: hidden;
     margin: 0 auto;
-    /* max-height: 52vh */
 }
 .vertex:hover {
     cursor: move;
@@ -659,16 +649,7 @@ button {
 .vertex.minusHover:hover {
     cursor: crosshair;
 }
-/* div.transitionlayer div {
-  transition: transform 0.25s ease;
-} */
-
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-.allPolygons:hover{
+.allPolygons:hover {
     fill: rgba(128,64,0,0.5);
 }
 </style>
