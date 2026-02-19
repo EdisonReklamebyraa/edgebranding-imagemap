@@ -1,8 +1,8 @@
-import ImageMapEditor from './components/fieldtypes/ImageMapEditor';
-import SvgEdit from './components/SvgEdit';
+import ImageMapEditor from './components/fieldtypes/ImageMapEditor.vue';
+import SvgEdit from './components/SvgEdit.vue';
 
 Statamic.booting(() => {
     Statamic.component('image_map_editor-fieldtype', ImageMapEditor);
 
-    Vue.component('svg-edit', SvgEdit);
+    Statamic.component('svg-edit', SvgEdit);
 });

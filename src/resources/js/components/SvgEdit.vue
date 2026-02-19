@@ -89,7 +89,7 @@ const modes = {
 };
 Object.freeze(modes);
 
-export default Vue.extend({
+export default {
     watch: {
         polygon() {
             if (!this.currentEntryId) { return; }
@@ -372,7 +372,7 @@ export default Vue.extend({
             }
         },
         setZoomMode(mode) {
-            // const mode = ev.srcElement.getAttribute("mode");
+            // const mode = ev.target.getAttribute("mode");
             if (this.currentMode !== mode) {
                 this.currentMode = mode;
             } else {
@@ -425,7 +425,7 @@ export default Vue.extend({
             this.imgIsReady = true;
         },
         addPoint(ev) {
-            const { clientWidth, clientHeight } = ev.srcElement.closest(
+            const { clientWidth, clientHeight } = ev.target.closest(
                 "div.transitionlayer"
             );
             const xFactor = this.viewBox.width / clientWidth;
@@ -442,7 +442,7 @@ export default Vue.extend({
         addIntersectingVertex(ev) {
             ev.stopPropagation();
             ev.preventDefault();
-            const { clientWidth, clientHeight } = ev.srcElement.closest(
+            const { clientWidth, clientHeight } = ev.target.closest(
                 "div.transitionlayer"
             );
             const xFactor = this.viewBox.width / clientWidth;
@@ -475,7 +475,7 @@ export default Vue.extend({
             if (this.activePoint == -1) {
                 return;
             }
-            const { clientWidth, clientHeight } = ev.srcElement.closest(
+            const { clientWidth, clientHeight } = ev.target.closest(
                 "div.transitionlayer"
             );
             const xFactor = this.viewBox.width / clientWidth;
@@ -486,7 +486,7 @@ export default Vue.extend({
             this.points = this.points.slice(0);
         },
         panViewport(ev) {
-            const { clientWidth, clientHeight } = ev.srcElement.closest(
+            const { clientWidth, clientHeight } = ev.target.closest(
                 "div.transitionlayer"
             );
             const deltaX = (ev.offsetX - this.oldOffsetX) / this.zoom;
@@ -570,7 +570,7 @@ export default Vue.extend({
             this.$emit('zoom-updated', false);
         },
         startSelectionZoom(ev) {
-            const { clientWidth, clientHeight } = ev.srcElement.closest(
+            const { clientWidth, clientHeight } = ev.target.closest(
                 "div.transitionlayer"
             );
             const xFactor = this.viewBox.width / clientWidth;
@@ -622,7 +622,7 @@ export default Vue.extend({
             this.hoveringVertex = false;
         }
     }
-});
+}
 </script>
 <style>
 .backgroundStyle {

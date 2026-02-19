@@ -11,9 +11,9 @@ class ServiceProvider extends AddonServiceProvider
         ImageMapEditor::class,
     ];
 
-    /*protected $stylesheets = [
-        __DIR__ . '../dist/css/image-map.css',
-    ]*/
+    protected $stylesheets = [
+        __DIR__ . '/../dist/js/style.css',
+    ];
 
     protected $scripts = [
         __DIR__ . '/../dist/js/image-map.js',

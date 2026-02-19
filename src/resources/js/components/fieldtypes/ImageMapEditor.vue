@@ -7,7 +7,8 @@
                 :initial-meta="{ container: config.container }"
                 class="w-1/2 mr-2 assets-fieldtype"
             >
-                <div slot-scope="{ meta, value, loading }">
+                <template v-slot:default="{ meta, value, loading }">
+                <div>
                     <label class="publish-field-label mb-1"><span class="cursor-pointer">Image</span></label>
                     <assets-fieldtype
                         v-if="!loading"
@@ -27,6 +28,7 @@
                         @input="onImageUploaded"
                     />
                 </div>
+                </template>
             </publish-field-meta>
 
             <publish-field-meta
@@ -39,7 +41,8 @@
                 :initial-value="value.entries"
                 class="w-1/2 flex-1"
             >
-                <div slot-scope="{ meta, value, loading }">
+                <template v-slot:default="{ meta, value, loading }">
+                <div>
                     <label class="publish-field-label mb-1"
                         ><span class="cursor-pointer" v-html="__('Buildings')"></span
                     ></label>
@@ -56,12 +59,10 @@
                         handle="entry"
                         ref="entry"
                         @input="onEntriesUpdated"
-                        @meta-updated="
-                            meta.data = $event.data;
-                            entryMeta = $event.data;
-                        "
+                        @meta-updated="entryMeta = $event.data"
                     />
                 </div>
+                </template>
             </publish-field-meta>
         </div>
         <div v-if="!loading" class="imagemapeditor mx-auto w-full mt-4">
@@ -122,7 +123,7 @@
                 <svg-edit
                     @polygon-updated="updatePolygon"
                     @zoom-updated="updateZoom"
-                    v-bind:selected.sync="selectedDropdown"
+                    v-model:selected="selectedDropdown"
                     v-if="polygons.length && images.length > 0"
                     :polygons="polygons"
                     :zoom-enabled="zoom"

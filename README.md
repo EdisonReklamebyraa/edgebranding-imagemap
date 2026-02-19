@@ -5,7 +5,7 @@ A Statamic v4 fieldtype for drawing SVG polygons on images, linking areas to col
 ## Requirements
 
 - PHP 8.1+
-- Statamic 4.x
+- Statamic 4.x or 5.x
 
 ## Installation
 
@@ -71,9 +71,8 @@ To modify the Vue components, install dependencies and build from the addon dire
 
 ```bash
 npm install
-npm run dev     # development build
-npm run watch   # watch for changes
+npm run dev     # watch for changes
 npm run prod    # production build
 ```
 
-Commit the compiled `dist/js/image-map.js` along with any source changes.
+Commit the compiled `dist/js/image-map.js` and `dist/js/style.css` along with any source changes.
