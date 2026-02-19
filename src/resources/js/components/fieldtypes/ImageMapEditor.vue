@@ -41,7 +41,7 @@
             >
                 <div slot-scope="{ meta, value, loading }">
                     <label class="publish-field-label mb-1"
-                        ><span class="cursor-pointer" v-html="__('Buildings')"></span
+                        ><span class="cursor-pointer" v-html="__('Property Items')"></span
                     ></label>
                     <relationship-fieldtype
                         v-if="!loading"
@@ -65,7 +65,7 @@
             </publish-field-meta>
         </div>
         <div v-if="!loading" class="imagemapeditor mx-auto w-full mt-4">
-            <label class="publish-field-label mb-1"><span class="cursor-pointer" v-html="__('Editor')"></span></label>
+            <label class="publish-field-label mb-1"><span class="cursor-pointer" v-html="__('Property Explorer Editor')"></span></label>
             <div class="flex">
                 <div class="flex-initial control mb-1 mr-1 field select-input">
                     <button
