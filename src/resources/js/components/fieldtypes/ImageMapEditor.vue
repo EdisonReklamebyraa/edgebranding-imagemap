@@ -171,7 +171,7 @@ export default {
                 });
 
                 self.images = images;
-                self.selectedImage = images[0].id;
+                self.selectedImage = images.length > 0 ? images[0].id : null;
                 self.updatePolygonList();
             });
         },
